@@ -27,13 +27,13 @@ cat4 = Category.create!(
 cat5 = Category.create!(
   name: "kidney function"
 )
-Category.create!(
+cat6 = Category.create!(
   name: "dietary advice"
 )
-Category.create!(
+cat7 = Category.create!(
   name: "emotional/psychological support"
 )
-Category.create!(
+cat8 = Category.create!(
   name: "group education"
 )
 
@@ -55,29 +55,31 @@ Appointment.create!(
   location: "Royal London hospital, Whitechapel Rd, Whitechapel, London E1 1BB",
   lat: "51.519",
   lng: "-.0581",
-  date_time: DateTime.new(2017,2,3,4,5,6),
+  date_time: DateTime.new(2017,5,3,14,20,0),
   specialist: "Sue Parker - Dietician",
   comment: "Must remember to bring the list of meals I've had in the last week to discuss.",
   user: user1,
-  category_ids: [cat1.id, cat2.id]
+  category_ids: [cat6.id, cat2.id]
 )
 
 Appointment.create!(
   location: "Royal London hospital, Whitechapel Rd, Whitechapel, London E1 1BB",
   lat: "51.519",
   lng: "-.0581",
-  date_time: DateTime.new(2017,3,3,4,5,6),
+  date_time: DateTime.new(2017,5,23,11,0,6),
   specialist: "Dr. Patel",
   comment: "Get grandson to pick me up after appointment and bring list of all medication",
-  user: user1
+  user: user1,
+  category_ids: [cat3.id]
 )
 
 Appointment.create!(
   location: "Mile End Hospital, Bancroft Rd, London E1 4DG",
   lat: "51.5245068",
   lng: "-.0426476",
-  date_time: DateTime.new(2017,2,3,4,6,6),
+  date_time: DateTime.new(2017,6,4,9,30,6),
   specialist: "Phillip Manson",
   comment: "Group session",
-  user: user1
+  user: user1,
+  category_ids: [cat8.id]
 )
