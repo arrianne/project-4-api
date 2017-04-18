@@ -6,22 +6,50 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+[Category, User, Appointment].each do |model|
+  ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{model.table_name} RESTART IDENTITY CASCADE")
+end
+
 require 'date'
 
-
+cat1 = Category.create!(
+  name: "blood glucose/fats"
+)
+cat2 = Category.create!(
+  name: "blood pressure"
+)
+cat3 = Category.create!(
+  name: "eye screening"
+)
+cat4 = Category.create!(
+  name: "feet and legs"
+)
+cat5 = Category.create!(
+  name: "kidney function"
+)
+Category.create!(
+  name: "dietary advice"
+)
+Category.create!(
+  name: "emotional/psychological support"
+)
+Category.create!(
+  name: "group education"
+)
 
 user1 = User.create!(
-username: "Gerald",
-email: "Gerald@hotmail.com",
-medication: "metformin",
-gp_name: "Dr. Raj",
-gp_address: "12-14 Nightingale House, 50 Thomas More Street, London, E1W 1UA",
-diagnosis_date: Date.new(2015, 12, 8),
-diabetes_type: 2,
-emergency_name: "Christine Baker",
-emergency_number: "02085578243",
-password: "password",
-password_confirmation: "password")
+  username: "Gerald",
+  email: "Gerald@hotmail.com",
+  medication: "metformin",
+  gp_name: "Dr. Raj",
+  gp_address: "12-14 Nightingale House, 50 Thomas More Street, London, E1W 1UA",
+  diagnosis_date: Date.new(2015, 12, 8),
+  diabetes_type: 2,
+  emergency_name: "Christine Baker",
+  emergency_number: "02085578243",
+  password: "password",
+  password_confirmation: "password"
+)
 
 Appointment.create!(
   location: "Royal London hospital, Whitechapel Rd, Whitechapel, London E1 1BB",
@@ -30,7 +58,8 @@ Appointment.create!(
   date_time: DateTime.new(2017,2,3,4,5,6),
   specialist: "Sue Parker - Dietician",
   comment: "Must remember to bring the list of meals I've had in the last week to discuss.",
-  user: user1
+  user: user1,
+  category_ids: [cat1.id, cat2.id]
 )
 
 Appointment.create!(
@@ -52,28 +81,3 @@ Appointment.create!(
   comment: "Group session",
   user: user1
 )
-#
-# Category.create!(
-# name: "blood glucose/fats"
-# )
-# Category.create!(
-# name: "blood pressure"
-# )
-# Category.create!(
-# name: "eye screening"
-# )
-# Category.create!(
-# name: "feet and legs"
-# )
-# Category.create!(
-# name: "kidney function"
-# )
-# Category.create!(
-# name: "dietary advice"
-# )
-# Category.create!(
-# name: "emotional/psychological support"
-# )
-# Category.create!(
-# name: "group education"
-# )
