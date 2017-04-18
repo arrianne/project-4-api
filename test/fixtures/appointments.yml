@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: MyText
+  lat: 1.5
+  lng: 1.5
+  date_time: 2017-04-15 16:50:04
+  specialist: MyString
+  comment: MyText
+  user: one
+
+two:
+  location: MyText
+  lat: 1.5
+  lng: 1.5
+  date_time: 2017-04-15 16:50:04
+  specialist: MyString
+  comment: MyText
+  user: two
