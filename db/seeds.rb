@@ -10,31 +10,40 @@
   ActiveRecord::Base.connection.execute("TRUNCATE TABLE #{model.table_name} RESTART IDENTITY CASCADE")
 end
 
+
 require 'date'
 
 cat1 = Category.create!(
-  name: "blood glucose/fats"
+  name: "blood glucose/fats",
+  image: "images/bloodglucose-fats.png"
 )
 cat2 = Category.create!(
-  name: "blood pressure"
+  name: "blood pressure",
+  image: "images/bloodpressure.png"
 )
 cat3 = Category.create!(
-  name: "eye screening"
+  name: "eye screening",
+  image: "images/eyescreening.png"
 )
 cat4 = Category.create!(
-  name: "feet and legs"
+  name: "feet and legs",
+  image: "images/podiatry.png"
 )
 cat5 = Category.create!(
-  name: "kidney function"
+  name: "kidney function",
+  image: "images/kidney.png"
 )
 cat6 = Category.create!(
-  name: "dietary advice"
+  name: "dietary advice",
+  image: "images/diet.png"
 )
 cat7 = Category.create!(
-  name: "emotional/psychological support"
+  name: "emotional/psychological support",
+  image: "images/emotionalsupport.png"
 )
 cat8 = Category.create!(
-  name: "group education"
+  name: "group education",
+  image: "images/group.png"
 )
 
 user1 = User.create!(
