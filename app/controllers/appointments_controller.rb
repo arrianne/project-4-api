@@ -16,6 +16,7 @@ class AppointmentsController < ApplicationController
   # POST /appointments
   def create
     @appointment = Appointment.new(appointment_params)
+    @appointment.user = current_user
 
     if @appointment.save
       render json: @appointment, status: :created, location: @appointment
