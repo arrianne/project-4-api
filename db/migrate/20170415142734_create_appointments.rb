@@ -4,7 +4,9 @@ class CreateAppointments < ActiveRecord::Migration[5.0]
       t.text :location
       t.float :lat
       t.float :lng
-      t.datetime :date_time
+      t.datetime :start
+      t.string :title
+      t.integer :duration
       t.string :specialist
       t.text :comment
       t.references :user, foreign_key: true
